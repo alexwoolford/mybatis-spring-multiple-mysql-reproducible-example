@@ -31,8 +31,8 @@ public class DataConfigDatabaseA {
     @Value("${db.port.db.a}")
     private String dbPortA;
 
-    @Bean
-    public DataSource dataSource() throws SQLException {
+    @Bean(name="dataSourceA")
+    public DataSource dataSourceA() throws SQLException {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriver(new com.mysql.jdbc.Driver());
         dataSource.setUrl("jdbc:mysql://" + dbHostA + "/" + dbDatabaseA);
@@ -44,7 +44,7 @@ public class DataConfigDatabaseA {
     @Bean
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setDataSource(dataSourceA());
         return sessionFactory.getObject();
     }
 
