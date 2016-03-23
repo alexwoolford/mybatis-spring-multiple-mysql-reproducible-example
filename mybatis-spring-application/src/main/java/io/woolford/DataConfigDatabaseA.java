@@ -7,6 +7,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import javax.sql.DataSource;
@@ -32,6 +33,7 @@ public class DataConfigDatabaseA {
     private String dbPortA;
 
     @Bean(name="dataSourceA")
+    @Primary
     public DataSource dataSourceA() throws SQLException {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriver(new com.mysql.jdbc.Driver());
@@ -41,7 +43,8 @@ public class DataConfigDatabaseA {
         return dataSource;
     }
 
-    @Bean
+    @Bean(name="sqlSessionFactoryA")
+    @Primary
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSourceA());

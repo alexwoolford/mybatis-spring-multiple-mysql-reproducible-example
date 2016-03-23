@@ -42,7 +42,7 @@ public class DataConfigDatabaseB {
         return dataSource;
     }
 
-    @Bean
+    @Bean(name="sqlSessionFactoryB")
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSourceB());
