@@ -9,7 +9,7 @@
     <modules>
         <module>migration-database-a</module>
         <module>migration-database-b</module>
-        <module>ibatis-spring-application</module>
+        <module>mybatis-spring-application</module>
     </modules>
 
 </project>
