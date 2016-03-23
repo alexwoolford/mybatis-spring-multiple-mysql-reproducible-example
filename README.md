@@ -15,5 +15,5 @@ Then build and run the app:
 
     cd mybatis-spring-application
     mvn clean package
-    java -jar target/
+    java -jar target/ibatis-spring-application-1.0-SNAPSHOT.jar
 
