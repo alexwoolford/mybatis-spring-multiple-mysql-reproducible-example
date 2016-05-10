@@ -8,7 +8,7 @@ import java.util.List;
 @Component
 public interface DbMapperA {
 
-    @Select("SELECT attribute, value FROM database_a.app_props")
+    @Select("SELECT attribute, value FROM testdb1.app_props")
     public List<Record> getDatabaseARecords();
 
 }

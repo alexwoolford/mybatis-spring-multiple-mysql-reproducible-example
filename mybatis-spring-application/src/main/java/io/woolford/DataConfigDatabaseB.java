@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
@@ -36,17 +38,22 @@ public class DataConfigDatabaseB {
     public DataSource dataSourceB() throws SQLException {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriver(new com.mysql.jdbc.Driver());
-        dataSource.setUrl("jdbc:mysql://" + dbHostB + "/" + dbDatabaseB);
+        dataSource.setUrl("jdbc:mysql://" + dbHostB + ":"+ dbPortB + "/" + dbDatabaseB);
         dataSource.setUsername(dbUserB);
         dataSource.setPassword(dbPasswordB);
         return dataSource;
     }
 
     @Bean(name="sqlSessionFactoryB")
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
+    public SqlSessionFactory sqlSessionFactoryB() throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSourceB());
         return sessionFactory.getObject();
+    }
+    
+    @Bean(name="transactionManagerB")
+    public PlatformTransactionManager getTransactionManagerB() throws SQLException {
+    	return new DataSourceTransactionManager(dataSourceB());
     }
 
 }
