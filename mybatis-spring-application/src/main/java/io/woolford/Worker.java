@@ -1,11 +1,11 @@
 package io.woolford;
 
-import io.woolford.database.mapper.DbMapperA;
-import io.woolford.database.mapper.DbMapperB;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import io.woolford.database.mapper.a.DbMapperA;
+import io.woolford.database.mapper.b.DbMapperB;
 
 @Component
 public class Worker {

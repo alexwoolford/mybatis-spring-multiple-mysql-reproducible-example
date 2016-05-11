@@ -1,4 +1,4 @@
-package io.woolford.database.mapper;
+package io.woolford.database.mapper.b;
 
 import io.woolford.database.entity.Record;
 import org.apache.ibatis.annotations.Select;

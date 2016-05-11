@@ -1,10 +1,11 @@
-package io.woolford.database.mapper;
+package io.woolford.database.mapper.a;
 
 import io.woolford.database.entity.Record;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
 @Component
 public interface DbMapperA {
 
